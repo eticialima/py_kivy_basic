@@ -1,0 +1,57 @@
+import kivy
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.floatlayout import FloatLayout
+
+#CRIANDO A CLASS
+class primeirobotao(App):
+    #PRIMEIRO BOTAO
+    def build(self):
+        layout = FloatLayout()
+        # CONFIGURACAO DO BOTAO
+        button = Button(text="BOTÃO1", font_size="30sp",
+                        background_color=(1, 1, 1, 1),
+                        color=(50, 50, 50, 50),
+                        size=(64, 64),
+                        size_hint=(.2, .1),
+                        pos=(200,300))
+
+        button2 = Button(text="BOTÃO2", font_size="30sp",
+                        background_color=(1, 1, 1, 1),
+                        color=(50, 50, 50, 50),
+                        size=(64, 64),
+                        size_hint=(.2, .1),
+                        pos=(400, 300))
+
+        button3 = Button(text="BOTÃO3", font_size="30sp",
+                         background_color=(1, 1, 1, 1),
+                         color=(50, 50, 50, 50),
+                         size=(64, 64),
+                         size_hint=(.2, .1),
+                         pos=(200, 200))
+
+        #FUNCAO DE CLICK DO BOTAO
+
+        layout.add_widget(button)
+        layout.add_widget(button2)
+        layout.add_widget(button3)
+
+        button.bind(on_press=self.primeiroclick)
+        button2.bind(on_press=self.segundoclick)
+        button3.bind(on_press=self.terceiroclick)
+        return layout
+
+    #FUNCAO DE CHAMA DO BOTAO 1
+    def primeiroclick (self, event):
+        print("VOCE CLICOU NO BOTÃO 1 !!! ")
+
+    # FUNCAO DE CHAMA DO BOTAO 2
+    def segundoclick (self, event):
+        print("VOCE CLICOU NO BOTÃO 2 !!! ")
+
+    # FUNCAO DE CHAMA DO BOTAO 2
+    def terceiroclick(self, event):
+        print("VOCE CLICOU NO BOTÃO 3 !!! ")
+
+if __name__=="__main__":
+    primeirobotao().run()
